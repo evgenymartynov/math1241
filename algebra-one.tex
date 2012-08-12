@@ -1,0 +1,28 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\usepackage{fullpage}
+
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\P}{\mathbb{P}}
+
+\renewcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\x}{\v{x}}
+\newcommand{\y}{\v{y}}
+
+% List styles
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand{\labelenumii}{(\theenumii)}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\begin{document}
+    \input{2007-s2-1-1b}
+    \input{2008-s0-1-1a}
+\end{document}
