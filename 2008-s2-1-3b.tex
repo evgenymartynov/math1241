@@ -1,0 +1,127 @@
+\section*{MATH1231/1241 Algebra S2 2008 Test 1 Version 3B}
+\begin{enumerate}
+    % Q1: subspace
+    \item We have
+        $$S = \left\{ \x \in \R^4 \left|~ \x = \lambda (2, 0, 1, -1)^T
+        \textrm{ for some } \lambda \in \R \right. \right\}$$
+
+        \begin{itemize}
+            \item
+                Setting $\lambda = 0 \in \R$, we get
+                $$\v{0} \in S$$
+                and thus S is not empty.
+
+            \item
+                Suppose $\x, \y \in S$. Then,
+                \begin{align*}
+                    &\left\{
+                        \begin{matrix}
+                            \x = \lambda (2, 0, 1, -1)^T, ~ \lambda \in \R \\
+                            \y = \mu (2, 0, 1, -1)^T, ~ \mu \in \R
+                        \end{matrix}
+                    \right. \\
+                    \implies&
+                        (\x+\y) = (\lambda + \mu) (2, 0, 1, -1)^T \\
+                    \implies&
+                        (\x+\y) \in S ~ \textrm{ since } (\lambda+\mu) \in \R
+                \end{align*}
+
+                Thus $S$ is closed under vector addition.
+
+                Further, suppose that $\alpha \in \R$. Then,
+                \begin{align*}
+                    \alpha \x &= \alpha (\lambda (2, 0, 1, -1)^T) \\
+                    \alpha \x &= (\alpha \lambda) (2, 0, 1, -1)^T \\
+                    \implies \alpha \x &\in S
+                \end{align*}
+
+                So $S$ is closed under scalar multiplication.
+        \end{itemize}
+
+        It follows that $S$ is a subspace of $\R^4$ by the Subspace Theorem.
+
+    % Q2: spans
+    \item
+        \begin{enumerate}
+            \item 
+            Suppose that $\v{w} = (a_1, a_2, a_3)^T \in \R^3$.
+            Let $S = \{\v{v_1}, \v{v_2}, \v{v_3}, \v{v_4}\}$.
+
+            Then, $S$ spans $\R^3$ if and only if $\v{w} \in \textrm{span}(S)$
+            for any choice of $\v{w}$.
+
+            This is equivalent to existence of a solution for the system of
+            linear equations represented by the following augmented matrix:
+
+            $$\begin{amatrix}{4}
+                -1 &  3 &  1 &  2 & a_1 \\
+                -2 &  7 &  3 &  3 & a_2 \\
+                 2 & -1 &  3 & -9 & a_3 \\
+            \end{amatrix}$$
+
+            Row-reducing, we obtain:
+
+            \begin{math}
+                \xrightarrow[R3 = R3 + 2R1]{R2 = R2 - 2R1}
+                \begin{amatrix}{4}
+                    -1 &  3 &  1 &  2 & a_1 \\
+                     0 &  1 &  1 & -1 & a_2 - 2a_1 \\
+                     0 &  5 &  5 & -5 & a_3 + 2a_1 \\
+                \end{amatrix}
+                \xrightarrow{R3 = R3 - 5R2}
+                \begin{amatrix}{4}
+                    -1 &  3 &  1 &  2 & a_1 \\
+                     0 &  1 &  1 & -1 & a_2 - 2a_1 \\
+                     0 &  0 &  0 &  0 & 12a_1 - 5a_2 + a_3 \\
+                \end{amatrix}
+            \end{math} \\[5mm]
+
+            The right-hand column is leading.
+            Thus, the system has a solution if and only if
+            $$12a_1 - 5a_2 + a_3 = 0$$
+
+            That is also the condition which must be satisfied for $\v{w}$
+            to be in the span of $S$.
+
+            Thus $S$ does not span all of $\R^3$.
+
+            \item
+                Considering $\v{u}$,
+                $$12(1) - 5(0) + (-5) = 7 \neq 0$$
+                Thus $\v{u} \notin \textrm{span}(S)$.
+        \end{enumerate}
+
+    % Q3: linear independence
+    \item
+        The vectors are linearly independent if and only if the system
+        of linear equations, represented by the following augmented matrix,
+        has only one (trivial) solution.
+
+        $$\begin{amatrix}{3}
+             1 & -4 &  3 & 0 \\
+            -3 &  7 & -2 & 0 \\
+            -1 & -1 &  4 & 0 \\
+        \end{amatrix}$$
+
+        Row-reducing, we get:
+
+        \begin{math}
+            \xrightarrow[R3 = R3 + R1]{R2 = R2 + 3R1}
+            \begin{amatrix}{3}
+                 1 & -4 &  3 & 0 \\
+                 0 & -5 &  7 & 0 \\
+                 0 & -5 &  7 & 0 \\
+            \end{amatrix}
+            \xrightarrow{R3 = R3 - R2}
+            \begin{amatrix}{3}
+                 1 & -4 &  3 & 0 \\
+                 0 & -5 &  7 & 0 \\
+                 0 &  0 &  0 & 0 \\
+            \end{amatrix}
+        \end{math} \\[5mm]
+
+        Third column is non-leading, and therefore the system has
+        infinitely many solutions.
+
+        Therefore, the vectors are linearly dependent.
+\end{enumerate}
